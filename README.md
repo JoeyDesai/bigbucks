@@ -3,6 +3,7 @@
 Big Bucks is a self-hosted budgeting app for one household. It does the job YNAB does: every dollar goes into a bucket, card spending moves money into the card's payment bucket, and the plan always adds up. Bank, card, investment and crypto accounts update on their own, new transactions arrive already sorted into buckets, and an Ask tab answers questions about your own money with charts. It installs on a phone like an app (a PWA) and runs on a small home server under Docker.
 
 - **Landing page:** https://bigbucks.ridgelineva.com
+- **Live demo:** https://budget-demo.ridgelineva.com (a made-up household; it resets every night)
 
 The code still uses the working name `homebase` for its packages, containers and databases.
 
