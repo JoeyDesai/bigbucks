@@ -1,0 +1,6 @@
+Date (UTC),Reference Code,Transaction Type,Sent Amount,Sent Currency,Received Amount,Received Currency,Fee Amount,Fee Currency,Total Amount,Total Currency,Method,Source,Destination,Cost Basis,Cost Basis Currency,Bitcoin Price Amount,Bitcoin Price Currency,Transaction ID,Recurring,Tag
+2026-01-05 15:00:00,RVR-0001,Buy,500.00,USD,0.00523560,BTC,0.00,USD,500.00,USD,Bank,River Cash,River Bitcoin,500.00,USD,95500.00,USD,,Yes,DCA
+2026-02-05 15:00:00,RVR-0002,Buy,"1,000.00",USD,0.01020408,BTC,0.00,USD,"1,000.00",USD,Bank,River Cash,River Bitcoin,"1,000.00",USD,98000.00,USD,,Yes,DCA
+2026-03-01 00:10:00,RVR-0003,Interest,,,0.00001200,BTC,,,0.00001200,BTC,Interest,River,River Bitcoin,1.10,USD,91666.67,USD,,No,
+2026-06-30 03:30:00,RVR-0004,Withdrawal,0.01000000,BTC,,,0.00002000,BTC,0.01002000,BTC,Onchain,River Bitcoin,bc1qexampleexampleexampleexampleexamp,,,105000.00,USD,f00dbabe00000000000000000000000000000000000000000000000000000000,No,cold storage
+2026-09-15 16:45:00,RVR-0005,Sell,0.00100000,BTC,108.25,USD,0.00,USD,108.25,USD,Bank,River Bitcoin,River Cash,,,108250.00,USD,,No,

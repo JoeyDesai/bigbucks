@@ -1,0 +1,10 @@
+{
+  "name": "@homebase/core",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": { ".": "./src/index.ts", "./buckets": "./src/buckets/math.ts" },
+  "scripts": { "test": "vitest run", "typecheck": "tsc -p ." },
+  "dependencies": { "@homebase/shared": "workspace:*", "@homebase/db": "workspace:*", "@homebase/engine": "workspace:*", "@homebase/ai": "workspace:*", "@homebase/categorizer": "workspace:*", "drizzle-orm": "0.45.4", "zod": "4.6.7" },
+  "devDependencies": {}
+}

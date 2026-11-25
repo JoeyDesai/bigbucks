@@ -1,0 +1,22 @@
+{
+  "name": "@homebase/ai",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./testing": "./src/testing/index.ts",
+    "./db": "./src/db/index.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc -p ."
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "1.1.0",
+    "@homebase/db": "workspace:*",
+    "@homebase/shared": "workspace:*",
+    "drizzle-orm": "0.45.4",
+    "zod": "4.6.7"
+  }
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Homebase speech-to-text: whisper.cpp HTTP server (Metal GPU) as a per-user
+  LaunchAgent on the server Mac.
+
+  TEMPLATE: do not load this file directly. infra/scripts/install-whisper.sh
+  fills in the double-underscore placeholders and installs the result to
+  ~/Library/LaunchAgents/com.homebase.whisper.plist.
+
+  Binds to 127.0.0.1 ONLY (never the LAN). Containers reach it through
+  OrbStack's host.internal / host.docker.internal forwarding to the Mac's
+  loopback. Endpoints: GET /health, POST /inference (multipart "file").
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.homebase.whisper</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>__WHISPER_SERVER__</string>
+    <string>--model</string>
+    <string>__MODEL_PATH__</string>
+    <string>--host</string>
+    <string>127.0.0.1</string>
+    <string>--port</string>
+    <string>8178</string>
+    <string>--language</string>
+    <string>en</string>
+    <string>--threads</string>
+    <string>__THREADS__</string>
+    <!-- __EXTRA_ARGS__ -->
+  </array>
+
+  <key>WorkingDirectory</key>
+  <string>__MODEL_DIR__</string>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>__BREW_PREFIX__/bin:/usr/bin:/bin</string>
+  </dict>
+
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <!-- Back off 10 s between restarts if it crashes on start. -->
+  <key>ThrottleInterval</key>
+  <integer>10</integer>
+  <key>ProcessType</key>
+  <string>Interactive</string>
+
+  <key>StandardOutPath</key>
+  <string>__LOG_DIR__/whisper.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>__LOG_DIR__/whisper.err.log</string>
+</dict>
+</plist>

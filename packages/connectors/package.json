@@ -1,0 +1,10 @@
+{
+  "name": "@homebase/connectors",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": { ".": "./src/index.ts" },
+  "scripts": { "test": "vitest run", "typecheck": "tsc -p ." },
+  "dependencies": { "@homebase/shared": "workspace:*", "zod": "4.6.7", "csv-parse": "7.0.3", "@scure/bip32": "2.4.0", "@scure/base": "2.4.0", "@noble/hashes": "2.4.0" },
+  "devDependencies": {  }
+}

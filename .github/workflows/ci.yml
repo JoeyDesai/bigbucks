@@ -1,0 +1,88 @@
+# CI for Homebase. Uses no repository secrets: the only credentials are the
+# throwaway ones for the job-local Postgres service below.
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: typecheck, lint, test
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: homebase
+          POSTGRES_PASSWORD: homebase
+          POSTGRES_DB: homebase_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U homebase -d homebase_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      DATABASE_URL: postgres://homebase:homebase@localhost:5432/homebase_test
+      TEST_DATABASE_URL: postgres://homebase:homebase@localhost:5432/homebase_test
+      TZ: America/New_York
+      CI: "true"
+    steps:
+      - uses: actions/checkout@v5
+      # Version comes from "packageManager" in package.json (pnpm@10.34.7).
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm lint
+      - run: pnpm test
+
+  infra:
+    name: infra checks
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - name: shellcheck
+        run: shellcheck --version && shellcheck --severity=warning infra/scripts/*.sh infra/backup/*.sh
+      - name: docker compose config
+        run: |
+          cp .env.example .env
+          # The demo services require their own secrets; CI only needs them to be non-empty.
+          sed -i 's/^DEMO_POSTGRES_PASSWORD=$/DEMO_POSTGRES_PASSWORD=ci-only/; s/^DEMO_MASTER_KEY=$/DEMO_MASTER_KEY=ci-only/' .env
+          infra/scripts/compose.sh config --quiet
+          # Guardrails: nothing publishes a port, postgres stays on the internal network.
+          infra/scripts/compose.sh config --format json > /tmp/compose.json
+          jq -e '[.services[] | select(.ports != null and (.ports | length) > 0)] | length == 0' /tmp/compose.json
+          jq -e '.networks.backend.internal == true' /tmp/compose.json
+          jq -e '.services.postgres.networks | keys == ["backend"]' /tmp/compose.json
+          jq -e '.services.web.network_mode == "service:tailscale"' /tmp/compose.json
+          # Next binds the 127.0.0.2 loopback alias (never 127.0.0.1, which userspace tailscaled
+          # forwards raw tailnet TCP to), and Serve proxies to exactly that address.
+          jq -e '.services.web.environment.HOSTNAME == "127.0.0.2"' /tmp/compose.json
+          jq -e '.services.web.environment.HOMEBASE_LISTEN_HOST == .services.web.environment.HOSTNAME' /tmp/compose.json
+          jq -e '.services.tailscale.environment.TS_USERSPACE == "false"' /tmp/compose.json
+          jq -e '.services.tailscale.environment.TS_LOCAL_ADDR_PORT | startswith("127.0.0.1:")' /tmp/compose.json
+          jq -e '[.Web[].Handlers[].Proxy] | all(. == "http://127.0.0.2:3000")' infra/tailscale/serve.json
+      - name: serve.json has Funnel off
+        run: jq -e '[.AllowFunnel[]] | all(. == false)' infra/tailscale/serve.json
+      - name: build worker image
+        run: docker build -f infra/docker/worker.Dockerfile -t homebase-worker:ci .
+      - name: build web image
+        # apps/web is scaffolded after infra; skip until it has a Next config.
+        if: hashFiles('apps/web/next.config.*') != ''
+        run: docker build -f infra/docker/web.Dockerfile -t homebase-web:ci .

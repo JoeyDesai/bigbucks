@@ -1,0 +1,77 @@
+{
+  "errlist": [
+    { "code": "gen.api", "msg": "Requested date range exceeds recommended range of 45 days. In the future, this may be capped." }
+  ],
+  "connections": [
+    { "conn_id": "CON-co000000001", "name": "Contoso Bank", "org_id": "ORG-co", "org_name": "Contoso Bank", "org_url": "https://www.contoso.com", "sfin_url": "https://beta-bridge.simplefin.org/simplefin" },
+    { "conn_id": "CON-wg000000002", "name": "Woodgrove Bank", "org_id": "ORG-wg", "org_name": "Woodgrove Bank", "org_url": "https://woodgrovebank.example", "sfin_url": "https://beta-bridge.simplefin.org/simplefin" },
+    { "conn_id": "CON-fk000000003", "name": "Fabrikam Credit Card", "org_id": "ORG-fk", "org_name": "Fabrikam", "org_url": "https://www.fabrikam.com", "sfin_url": "https://beta-bridge.simplefin.org/simplefin" }
+  ],
+  "accounts": [
+    {
+      "id": "ACT-checking-0001",
+      "name": "CONTOSO BANK CHECKING ...0001 (0001)",
+      "conn_id": "CON-co000000001",
+      "currency": "USD",
+      "balance": "4210.55",
+      "available-balance": "4185.55",
+      "balance-date": 1792641600,
+      "holdings": [],
+      "transactions": [
+        { "id": "TRN-c-001", "posted": 1792209600, "transacted_at": 1792195200, "amount": "3250.00", "description": "NORTHWIND STUDIO PAYROLL PPD ID: 0000000000", "payee": "Northwind Studio", "memo": "", "mcc": "", "pending": false },
+        { "id": "TRN-c-002", "posted": 1792296000, "transacted_at": 1792281600, "amount": "-612.40", "description": "CONTOSO CARD AUTO PAY 000000 0000000000", "payee": "Contoso Bank", "memo": "", "mcc": "", "pending": false },
+        { "id": "TRN-c-003", "posted": 1792382400, "transacted_at": 1792368000, "amount": "-250.00", "description": "ONLINE TRANSFER TO WOODGROVE REF #IB0X0000", "payee": "Online Transfer", "memo": "", "mcc": "", "pending": false },
+        { "id": "TRN-c-004", "posted": 1792468800, "transacted_at": 1792454400, "amount": "-421.18", "description": "FABRIKAM E-PAYMENT 0000", "payee": "Fabrikam", "memo": "", "mcc": "", "pending": false },
+        { "id": "TRN-c-005", "posted": 0, "transacted_at": 1792627200, "amount": "-89.99", "description": "FAIRVIEW POWER BILL PAY", "payee": "Fairview Power", "memo": "", "mcc": "", "pending": true }
+      ]
+    },
+    {
+      "id": "ACT-card-0002",
+      "name": "CONTOSO BANK VISA CARD ...0002 (0002)",
+      "conn_id": "CON-co000000001",
+      "currency": "USD",
+      "balance": "-1384.22",
+      "available-balance": "8615.78",
+      "balance-date": 1792641600,
+      "holdings": [],
+      "transactions": [
+        { "id": "TRN-v-001", "posted": 1792209600, "transacted_at": 1792195200, "amount": "-142.67", "description": "COSTCO WHSE #0000 FAIRVIEW VA", "payee": "Costco", "memo": "", "mcc": "5300", "pending": false },
+        { "id": "TRN-v-002", "posted": 1792296000, "transacted_at": 1792281600, "amount": "-38.12", "description": "SQ *KESSLER S MINFAIRVIEW VA", "payee": "Kessler S Min", "memo": "", "mcc": "5812", "pending": false },
+        { "id": "TRN-v-003", "posted": 1792382400, "transacted_at": 1792368000, "amount": "-64.03", "description": "LOWES #00000* MILTON VA", "payee": "Lowe's", "memo": "", "mcc": "5200", "pending": false },
+        { "id": "TRN-v-004", "posted": 1792468800, "transacted_at": 1792454400, "amount": "612.40", "description": "AUTOMATIC PAYMENT - THANK YOU", "payee": "Payment", "memo": "", "mcc": "", "pending": false },
+        { "id": "TRN-v-005", "posted": 1792555200, "transacted_at": 1792540800, "amount": "-15.49", "description": "NETFLIX.COM 866-000-0000 CA", "payee": "Netflix", "memo": "", "mcc": "4899", "pending": false },
+        { "id": "TRN-v-006", "posted": 0, "transacted_at": 1792627200, "amount": "-52.10", "description": "SHELL OIL 00000000 FAIRVIEW VA", "payee": "Shell", "memo": "", "mcc": "5541", "pending": true },
+        { "id": "TRN-v-007", "posted": 1792555200, "transacted_at": 1792540800, "amount": "24.99", "description": "AMAZON MKTPL*RETURN Amzn.com/bill WA", "payee": "Amazon", "memo": "", "mcc": "5942", "pending": false }
+      ]
+    },
+    {
+      "id": "ACT-savings-0003",
+      "name": "High Yield Savings (0003)",
+      "conn_id": "CON-wg000000002",
+      "currency": "USD",
+      "balance": "18250.00",
+      "available-balance": "18250.00",
+      "balance-date": 1792641600,
+      "holdings": [],
+      "transactions": [
+        { "id": "TRN-s-001", "posted": 1792382400, "transacted_at": 1792382400, "amount": "250.00", "description": "Deposit from CONTOSO BANK", "payee": "Transfer", "memo": "", "mcc": "", "pending": false }
+      ]
+    },
+    {
+      "id": "ACT-fabrikam-0004",
+      "name": "Card (0004)",
+      "conn_id": "CON-fk000000003",
+      "currency": "USD",
+      "balance": "-733.41",
+      "available-balance": "9266.59",
+      "balance-date": 1792641600,
+      "holdings": [],
+      "transactions": [
+        { "id": "TRN-d-001", "posted": 1792209600, "transacted_at": 1792195200, "amount": "-118.36", "description": "AMAZON MKTPL*AB00CD00 Amzn.com/bill WA", "payee": "Amazon", "memo": "", "mcc": "5942", "pending": false },
+        { "id": "TRN-d-002", "posted": 1792296000, "transacted_at": 1792281600, "amount": "-96.44", "description": "KROGER #000 FAIRVIEW VA", "payee": "Kroger", "memo": "", "mcc": "5411", "pending": false },
+        { "id": "TRN-d-003", "posted": 1792468800, "transacted_at": 1792468800, "amount": "421.18", "description": "INTERNET PAYMENT - THANK YOU", "payee": "Payment", "memo": "", "mcc": "", "pending": false },
+        { "id": "TRN-d-004", "posted": 0, "transacted_at": 1792627200, "amount": "-27.80", "description": "TST* BLUE PLATE DINER MILTON VA", "payee": "Blue Plate Diner", "memo": "", "mcc": "5812", "pending": true }
+      ]
+    }
+  ]
+}

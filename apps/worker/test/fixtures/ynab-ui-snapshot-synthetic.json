@@ -1,0 +1,40 @@
+{
+  "source": "synthetic test fixture (names match packages/engine/test/golden/synthetic/plan.json)",
+  "month": "2026-10-01",
+  "plan": "Synthetic Plan",
+  "summary": { "readyToAssign": 4800000, "leftOverFromLastMonth": 210000, "assigned": 485000, "activity": -215000, "available": 480000, "costToBeMe": 350000, "uncategorizedActivity": 0, "hiddenActivity": 0 },
+  "groups": [
+    {
+      "name": "Credit Card Payments",
+      "system": true,
+      "categories": [{ "name": "Visa", "icon": null, "assigned": 0, "activity": 0, "available": 20000, "carryIn": 20000, "target": null }]
+    },
+    {
+      "name": "Bills",
+      "system": false,
+      "categories": [
+        { "name": "🏠 Rent", "icon": "house", "assigned": 150000, "activity": -150000, "available": 150000, "carryIn": 150000, "target": { "type": "need_set_aside", "amount": 150000, "cadence": "monthly", "day": 1 } }
+      ]
+    },
+    {
+      "name": "Needs",
+      "system": false,
+      "categories": [
+        { "name": "Groceries", "icon": "apple", "assigned": 200000, "activity": -60000, "available": 170000, "carryIn": 30000, "target": { "type": "need_refill", "amount": 210000, "cadence": "monthly", "day": null } },
+        { "name": "Invest", "icon": null, "assigned": 50000, "activity": 0, "available": 50000, "carryIn": 0, "target": null }
+      ]
+    },
+    {
+      "name": "Wants",
+      "system": false,
+      "categories": [
+        { "name": "🍿 Fun", "icon": "popcorn", "assigned": 60000, "activity": -5000, "available": 65000, "carryIn": 10000, "target": null },
+        { "name": "Gym", "icon": "dumbbell", "assigned": 25000, "activity": 0, "available": 25000, "carryIn": 0, "target": null }
+      ]
+    }
+  ],
+  "hidden": [
+    { "group": "Bills", "name": "💧 Water", "icon": "droplet" },
+    { "group": "Wants", "name": "Gym", "icon": "dumbbell" }
+  ]
+}

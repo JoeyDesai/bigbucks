@@ -1,0 +1,9 @@
+{
+  "pagination": { "next_uri": null, "limit": 100, "order": "desc" },
+  "data": [
+    { "id": "t-buy-1", "type": "buy", "status": "completed", "amount": { "amount": "0.01000000", "currency": "BTC" }, "native_amount": { "amount": "670.00", "currency": "USD" }, "description": null, "created_at": "2026-10-05T14:00:00Z", "updated_at": "2026-10-05T14:00:00Z", "resource": "transaction", "resource_path": "/v2/accounts/w-btc/transactions/t-buy-1", "details": { "title": "Bought Bitcoin", "subtitle": "Using USD Wallet", "header": "Bought 0.01 BTC ($670.00)" }, "network": { "status": "off_blockchain" } },
+    { "id": "t-send-1", "type": "send", "status": "pending", "amount": { "amount": "-0.00500000", "currency": "BTC" }, "native_amount": { "amount": "-335.00", "currency": "USD" }, "description": "to cold storage", "created_at": "2026-10-21T02:30:00Z", "resource": "transaction", "resource_path": "/v2/accounts/w-btc/transactions/t-send-1", "details": { "title": "Sent Bitcoin", "subtitle": "To Bitcoin address" }, "network": { "status": "pending", "hash": "00000000000000000000000000000000000000000000000000000000deadbeef" } },
+    { "id": "t-fail-1", "type": "send", "status": "failed", "amount": { "amount": "-1.0", "currency": "BTC" }, "native_amount": { "amount": "-67000.00", "currency": "USD" }, "created_at": "2026-10-10T00:00:00Z", "resource": "transaction", "resource_path": "/v2/accounts/w-btc/transactions/t-fail-1" },
+    { "id": "t-old-1", "type": "buy", "status": "completed", "amount": { "amount": "0.5", "currency": "BTC" }, "native_amount": { "amount": "15000.00", "currency": "USD" }, "created_at": "2023-01-10T00:00:00Z", "resource": "transaction", "resource_path": "/v2/accounts/w-btc/transactions/t-old-1", "details": { "title": "Bought Bitcoin" } }
+  ]
+}

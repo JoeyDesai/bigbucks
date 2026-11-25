@@ -1,0 +1,29 @@
+{
+  "price": 412000,
+  "priceRangeLow": 375000,
+  "priceRangeHigh": 449000,
+  "subjectProperty": {
+    "id": "100-Example-Ave,-Fairview,-VA-00000",
+    "formattedAddress": "100 Example Ave, Fairview, VA 00000",
+    "addressLine1": "100 Example Ave",
+    "addressLine2": null,
+    "city": "Fairview",
+    "state": "VA",
+    "zipCode": "00000",
+    "county": "Fairview County",
+    "latitude": 39.83,
+    "longitude": -98.58,
+    "propertyType": "Single Family",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "squareFootage": 1850,
+    "lotSize": 7405,
+    "yearBuilt": 1948,
+    "lastSaleDate": "2021-06-11T00:00:00.000Z",
+    "lastSalePrice": 289900
+  },
+  "comparables": [
+    { "id": "c1", "formattedAddress": "110 Example Ave, Fairview, VA 00000", "propertyType": "Single Family", "bedrooms": 3, "bathrooms": 2, "squareFootage": 1790, "status": "Inactive", "price": 405000, "listingType": "Standard", "listedDate": "2026-07-02T00:00:00.000Z", "removedDate": "2026-08-15T00:00:00.000Z", "lastSeenDate": "2026-08-14T00:00:00.000Z", "daysOnMarket": 44, "distance": 0.08, "daysOld": 69, "correlation": 0.9821 },
+    { "id": "c2", "formattedAddress": "22 Sample St, Fairview, VA 00000", "propertyType": "Single Family", "bedrooms": 4, "bathrooms": 2.5, "squareFootage": 2100, "status": "Active", "price": 439500, "listingType": "Standard", "listedDate": "2026-09-20T00:00:00.000Z", "removedDate": null, "lastSeenDate": "2026-10-21T00:00:00.000Z", "daysOnMarket": 31, "distance": 0.41, "daysOld": 1, "correlation": 0.9512 }
+  ]
+}

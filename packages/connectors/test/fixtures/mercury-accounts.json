@@ -1,0 +1,8 @@
+{
+  "accounts": [
+    { "id": "6f1c0000-0000-4000-8000-000000000001", "accountNumber": "000000001111", "routingNumber": "000000000", "name": "Mercury Checking ••1111", "nickname": "Northwind Ops", "status": "active", "type": "mercury", "kind": "checking", "createdAt": "2024-02-01T15:00:00Z", "availableBalance": 18234.5, "currentBalance": 18310.75, "canSendRealTimePayments": false, "legalBusinessName": "Northwind Studio LLC", "dashboardLink": "https://app.mercury.com/accounts/x" },
+    { "id": "6f1c0000-0000-4000-8000-000000000002", "accountNumber": "000000002222", "routingNumber": "000000000", "name": "Mercury Savings ••2222", "nickname": null, "status": "active", "type": "mercury", "kind": "savings", "createdAt": "2024-02-01T15:00:00Z", "availableBalance": 50000, "currentBalance": 50000, "canSendRealTimePayments": false, "legalBusinessName": "Northwind Studio LLC", "dashboardLink": "https://app.mercury.com/accounts/y" },
+    { "id": "6f1c0000-0000-4000-8000-000000000003", "accountNumber": "000000003333", "routingNumber": "000000000", "name": "Old account", "nickname": null, "status": "deleted", "type": "mercury", "kind": "checking", "createdAt": "2023-01-01T15:00:00Z", "availableBalance": 0, "currentBalance": 0, "canSendRealTimePayments": false, "legalBusinessName": "Northwind Studio LLC", "dashboardLink": "https://app.mercury.com/accounts/z" }
+  ],
+  "page": { "nextPage": null, "previousPage": null }
+}

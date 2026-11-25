@@ -1,0 +1,14 @@
+﻿Account Number,Account Name,Symbol,Description,Quantity,Last Price,Last Price Change,Current Value,Today's Gain/Loss Dollar,Today's Gain/Loss Percent,Total Gain/Loss Dollar,Total Gain/Loss Percent,Percent Of Account,Cost Basis Total,Average Cost Basis,Type
+Z00000001,Individual,SPAXX**,HELD IN MONEY MARKET,,,,$1234.56,,,,,4.12%,,,Cash,
+Z00000001,Individual,FXAIX,FIDELITY 500 INDEX FUND,52.318,$214.33,+$1.02,"$11,213.31",+$53.36,+0.48%,"+$2,013.31",+21.88%,37.40%,"$9,200.00",$175.85,Cash,
+Z00000001,Individual,VTI,VANGUARD INDEX FDS TOTAL STK MKT,20,$301.10,-$0.40,"$6,022.00",-$8.00,-0.13%,+$522.00,+9.49%,20.09%,"$5,500.00",$275.00,Margin,
+Z00000001,Individual,Pending Activity,,,,,-$100.00,,,,,,,,,
+00000002,ACME 401(K) PLAN,BLKRK2050,BLACKROCK LIFEPATH INDEX 2050 FUND K,410.552,$31.20,+$0.12,"$12,809.22",+$49.27,+0.39%,"+$1,809.22",+16.45%,100.00%,"$11,000.00",$26.79,Cash,
+
+
+
+"The data and information in this spreadsheet is provided to you solely for your use and is not for distribution. The spreadsheet is provided for informational purposes only, and is not intended to provide advice, nor should it be construed as an offer to sell, a solicitation of an offer to buy or a recommendation for any security or insurance product by Fidelity or any third party."
+
+"Brokerage services are provided by Fidelity Brokerage Services LLC (FBS), 900 Milton Street, Smithfield, RI 02917. Custody and other services provided by National Financial Services LLC (NFS). Both are Fidelity Investment companies and members SIPC, NYSE."
+
+"Date downloaded Oct-22-2026 10:15 a.m ET"

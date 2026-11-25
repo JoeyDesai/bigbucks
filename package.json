@@ -1,0 +1,26 @@
+{
+  "name": "homebase",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.34.7",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "dev": "pnpm --filter @homebase/web dev",
+    "build": "pnpm -r build",
+    "test": "pnpm -r --if-present test",
+    "lint": "pnpm -r --if-present lint",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "db:dev": "bash infra/scripts/dev-db.sh",
+    "db:migrate": "pnpm --filter @homebase/db migrate",
+    "db:generate": "pnpm --filter @homebase/db generate",
+    "seed:demo": "pnpm --filter @homebase/db seed:demo",
+    "import:ynab": "pnpm --filter @homebase/worker import:ynab",
+    "import:ynab-snapshot": "pnpm --filter @homebase/worker import:ynab-snapshot"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "tsx": "4.23.15",
+    "vitest": "5.0.5",
+    "@types/node": "^24"
+  }
+}

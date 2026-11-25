@@ -1,0 +1,6 @@
+/public/sw.js
+/public/sw.js.map
+/public/swe-worker-*.js
+/test-results/
+/playwright-report/
+next-env.d.ts

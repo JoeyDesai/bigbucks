@@ -1,0 +1,41 @@
+# Build context is the repo root (infra/docker/*.Dockerfile). Keep secrets,
+# local state and host-only files out of every image.
+
+# dependencies and build output (rebuilt inside the image)
+node_modules
+**/node_modules
+**/.next
+**/dist
+**/coverage
+**/*.tsbuildinfo
+**/.turbo
+
+# secrets and local state: never in an image
+.env
+.env.*
+**/.env
+**/.env.*
+*.pem
+*.key
+secrets
+backups
+.dev
+fixtures/private
+infra/tailscale/state
+
+# VCS, CI, editor and OS noise
+.git
+.github
+.vscode
+.idea
+**/.DS_Store
+
+# test artifacts
+**/test-results
+**/playwright-report
+
+# host-only infra and docs (not needed to build the app)
+infra/scripts
+infra/launchd
+infra/backup
+docs
