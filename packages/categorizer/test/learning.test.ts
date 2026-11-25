@@ -11,7 +11,7 @@ function setup() {
   const repo = new InMemoryCategorizerRepo({
     categories: CATS,
     accounts: ACCOUNTS,
-    transactions: [InMemoryCategorizerRepo.txn({ id: "u1", accountId: "a-wfcard", date: "2026-10-18", amountMilli: -30_000n, rawDescription: "LOWE'S #1234", categoryId: "c-misc", approved: false })],
+    transactions: [InMemoryCategorizerRepo.txn({ id: "u1", accountId: "a-card", date: "2026-10-18", amountMilli: -30_000n, rawDescription: "LOWE'S #1234", categoryId: "c-misc", approved: false })],
   });
   return repo;
 }
@@ -31,7 +31,7 @@ describe("learning from corrections (§9.5)", () => {
     ]);
 
     // The learned rule now categorizes Lowe's in the pipeline.
-    const r = await categorizeTransaction({ id: "t3", accountId: "a-wfcard", date: "2026-10-21", amountMilli: -12_000n, rawDescription: "LOWE'S #1234 FAIRVIEW VA" }, { repo, now });
+    const r = await categorizeTransaction({ id: "t3", accountId: "a-card", date: "2026-10-21", amountMilli: -12_000n, rawDescription: "LOWE'S #1234 FAIRVIEW VA" }, { repo, now });
     expect(r).toMatchObject({ categoryId: "c-house", catz: { method: "rule", rule_id: second.learnedRule!.id } });
 
     // A third identical correction does not create a duplicate rule.

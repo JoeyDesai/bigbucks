@@ -5,13 +5,13 @@ import { batchCustomId, batchStatus, buildBatchRequests, collectBatchResults, In
 import { ACCOUNTS, CATS } from "./fixtures";
 
 const now = () => new Date("2026-10-22T03:00:00Z");
-const tx = (id: string, raw: string, amountMilli: bigint): TxnInput => ({ id, accountId: "a-wfcard", date: "2026-10-20", amountMilli, rawDescription: raw });
+const tx = (id: string, raw: string, amountMilli: bigint): TxnInput => ({ id, accountId: "a-card", date: "2026-10-20", amountMilli, rawDescription: raw });
 
 function repo() {
   return new InMemoryCategorizerRepo({
     categories: CATS,
     accounts: ACCOUNTS,
-    transactions: Array.from({ length: 4 }, (_, i) => InMemoryCategorizerRepo.txn({ id: `k${i}`, accountId: "a-wfcard", date: "2026-09-0" + (i + 1), amountMilli: -30_000n, rawDescription: "KROGER #12", categoryId: "c-groc" })),
+    transactions: Array.from({ length: 4 }, (_, i) => InMemoryCategorizerRepo.txn({ id: `k${i}`, accountId: "a-card", date: "2026-09-0" + (i + 1), amountMilli: -30_000n, rawDescription: "KROGER #12", categoryId: "c-groc" })),
   });
 }
 

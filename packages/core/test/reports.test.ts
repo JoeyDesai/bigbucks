@@ -181,9 +181,9 @@ describe("spending breakdown (report 1)", () => {
     expect(grp.total).toBe(cat.total);
     const bills = grp.rows.find((x) => x.label === "Bills")!;
     expect(bills.amount).toBe(cat.rows.filter((x) => x.groupLabel === "Bills").reduce((t, x) => t + x.amount, 0n));
-    const [disc] = (await db.execute<{ id: string }>(sql`SELECT id FROM accounts WHERE name = 'Cash Back Card'`)).rows;
-    const one = await spendingBreakdownReport(db, P({ accountIds: [disc!.id] }));
-    expect(one.total).toBe(await sqlSpending(OCT, TODAY, sql`account_id = ${disc!.id}`));
+    const [cashBack] = (await db.execute<{ id: string }>(sql`SELECT id FROM accounts WHERE name = 'Cash Back Card'`)).rows;
+    const one = await spendingBreakdownReport(db, P({ accountIds: [cashBack!.id] }));
+    expect(one.total).toBe(await sqlSpending(OCT, TODAY, sql`account_id = ${cashBack!.id}`));
     expect(one.total).toBeLessThan(cat.total);
   });
 

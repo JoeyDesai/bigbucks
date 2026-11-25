@@ -82,8 +82,8 @@ describe("§6.4 rule 1: card purchases move the funded portion to P(K)", () => {
   });
 
   it("a card without a payment category gets a virtual one (with a warning)", () => {
-    const r = snap().account("chk").account("disc", "credit_card").cat("a").income("chk", "2026-01-01", 100).assign("2026-01", "a", 100).spend("disc", "2026-01-02", "a", 40).run("2026-01");
-    expect(c(r, "2026-01", "__cc_payment__:disc").activity).toBe($(40));
+    const r = snap().account("chk").account("cashback", "credit_card").cat("a").income("chk", "2026-01-01", 100).assign("2026-01", "a", 100).spend("cashback", "2026-01-02", "a", 40).run("2026-01");
+    expect(c(r, "2026-01", "__cc_payment__:cashback").activity).toBe($(40));
     expect(r.warnings.join()).toContain("no payment category");
   });
 
